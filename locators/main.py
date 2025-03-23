@@ -1,0 +1,18 @@
+from selenium.webdriver.common.by import By
+
+LOGIN_TO_ACCOUNT_BUTTON = [By.XPATH, "//button[contains(text(), 'Войти в аккаунт')]"]
+CONSTRUCTOR_BUTTON = [By.XPATH,'//p[text() = "Конструктор"]']
+ORDER_FEED_BUTTON = [By.XPATH,'//p[text() = "Лента Заказов"]']
+FIRST_INGREDIENT_BUTTON = [By.XPATH,'(//img[@class="BurgerIngredient_ingredient__image__3e-07 ml-4 mr-4"])[1]']
+IS_INGREDIENT_MODAL_OPENED = [By.XPATH, "//section[contains(@class, 'Modal_modal_opened')]//h2[text()='Детали ингредиента']"]
+CLOSE_INGREDIENT_DETAILS_MODAL_BUTTON = [By.XPATH,'//button[contains(@class, "modal__close")]']
+CLOSE_ORDER_BUTTON = [By.XPATH,'//button[contains(@class, "Modal_modal__close_modified__3V5XS")]']
+BURGER_CONSTRUCTOR_BASKET = [By.XPATH,'//section[contains(@class, "BurgerConstructor_basket")]']
+INGREDIENT_COUNTER = [By.XPATH,'(//p[contains(@class, "counter_counter__num__3nue1")])[1]']
+MAKE_ORDER_BUTTON = [By.XPATH, '//button[contains(@class, "button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_large__G21Vg")]']
+ORDER_NUMBER = [By.XPATH, "//section[contains(@class, 'Modal_modal_opened')]//h2[contains(@class, 'Modal_modal__title')]"]
+FIRST_ORDER_NUMBER = [By.XPATH, "(//li[contains(@class, 'OrderHistory_listItem')]//p[contains(@class, 'text_type_digits-default')])[1]"]
+TOTAL_ORDERS = [By.XPATH, "//p[contains(@class, 'OrderFeed_number') and contains(@class, 'text_type_digits-large')][1]"]
+TODAY_ORDERS = [By.XPATH, "//p[text()='Выполнено за сегодня:']/following-sibling::p[contains(@class, 'OrderFeed_number')]"]
+IN_WORK_ORDER = [By.XPATH, "//p[text()='В работе:']/following-sibling::ul[2]/li[1]"]
+READY_ORDER = [By.XPATH, "//p[text()='В работе:']/following-sibling::ul[1]/li[1]"]
