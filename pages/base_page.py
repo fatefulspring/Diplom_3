@@ -40,3 +40,7 @@ class BasePage:
         element1 = self.driver.find_element(*element1)
         element2 = self.driver.find_element(*element2)
         ActionChains(self.driver).drag_and_drop(element1, element2).perform()
+
+    @property
+    def current_url(self):
+        return self.driver.current_url

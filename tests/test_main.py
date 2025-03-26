@@ -1,11 +1,8 @@
 import allure
 
+from constants import BASE_URL, FEED_URL, LOGIN_URL
 from pages.main_page import MainPage
 from pages.personal_account_page import PersonalAccount
-
-from .constants import BASE_URL, LOGIN_URL, FEED_URL
-
-from.helpers import register_user
 
 
 class TestMainFunc:
@@ -14,14 +11,14 @@ class TestMainFunc:
         driver.get(LOGIN_URL)
         page = MainPage(driver)
         page.go_to_constructor()
-        assert driver.current_url == BASE_URL
+        assert page.current_url == BASE_URL
 
     @allure.title('переход по клику на «Лента заказов»')
     def test_go_to_order_feed(self, driver):
         driver.get(LOGIN_URL)
         page = MainPage(driver)
         page.go_to_order_feed()
-        assert driver.current_url == FEED_URL
+        assert page.current_url == FEED_URL
 
     @allure.title('если кликнуть на ингредиент, появится всплывающее окно с деталями')
     def test_click_ingredient(self, driver):
@@ -47,10 +44,9 @@ class TestMainFunc:
 
 
     @allure.title('залогиненный пользователь может оформить заказ')
-    def test_create_order_with_login_user(self, driver):
+    def test_create_order_with_login_user(self, driver, user_email_password):
         driver.get(LOGIN_URL)
-        email, password = register_user()
         account_page = PersonalAccount(driver)
-        account_page.login(email, password)
+        account_page.login(*user_email_password)
         page = MainPage(driver)
         assert page.make_order()

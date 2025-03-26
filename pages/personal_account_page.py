@@ -1,4 +1,3 @@
-from time import sleep
 
 from locators import personal_account as personal_account_locator
 

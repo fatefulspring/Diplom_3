@@ -1,6 +1,6 @@
 import allure
 
-from. import constants
+import constants
 from pages.main_page import MainPage
 from pages.password_recovery_page import RecoveryPage
 
@@ -12,17 +12,17 @@ class TestPasswordRecovery:
         driver.get(constants.BASE_URL)
         main_page = MainPage(driver)
         main_page.go_to_login_page()
-        assert driver.current_url == constants.LOGIN_URL
+        assert main_page.current_url == constants.LOGIN_URL
         login_page = RecoveryPage(driver)
         login_page.go_to_password_recovery_page()
-        assert driver.current_url == constants.RECOVERY_URL
+        assert login_page.current_url == constants.RECOVERY_URL
 
     @allure.title('ввод почты и клик по кнопке «Восстановить»')
     def test_enter_email(self, driver):
         driver.get(constants.RECOVERY_URL)
         recovery_page = RecoveryPage(driver)
         recovery_page.password_recovery()
-        assert driver.current_url == constants.RESET_URL
+        assert recovery_page.current_url == constants.RESET_URL
 
     @allure.title('клик по кнопке показать/скрыть пароль делает поле активным — подсвечивает его')
     def test_hide_show_password(self, driver):
